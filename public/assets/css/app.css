@@ -114,6 +114,7 @@
 
 .box-content .content {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .box-content .content ._1content {

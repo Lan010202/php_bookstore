@@ -10,7 +10,7 @@
             <div class="col-12">
                 <div class="title">
                     <h3>Sách bán chạy</h3>
-                    <a href="">
+                    <a href="{{ route('category') }}">
                         <span>Xem tất cả</span>
                         <i class="fas fa-angle-right"></i>
                     </a>
