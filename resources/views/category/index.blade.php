@@ -23,7 +23,7 @@
                                 src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/150x226/img1.jpg"
                                 alt="">
                             <span class="category">Phát triển</span>
-                            <h6 class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</h6>
+                            <a href="{{ route('product') }}" class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</a>
                             <span class="author">Jay Shetty</span>
                             <strong class="price">50,000 VND</strong>
                             <div class="action">

@@ -135,7 +135,7 @@
 }
 
 .box-content .content ._1content .title {
-    text-align: justify;
+    text-decoration: none;
     margin-bottom: 0px;
     cursor: pointer;
     display: -webkit-box;
@@ -146,6 +146,8 @@
     text-overflow: ellipsis;
     /* Additional styles for the container (e.g., height, width, etc.) */
     /* Set the height to accommodate two lines of text */
+    color: black;
+    font-weight: 500;
 }
 
 .box-content .content ._1content .title:hover {
@@ -179,6 +181,9 @@
 }
 
 .box-content .content ._1content .action .buy-now {}
+
+.box-content .product-detail {}
+
 
 .bottom {}
 .bottom strong {}
