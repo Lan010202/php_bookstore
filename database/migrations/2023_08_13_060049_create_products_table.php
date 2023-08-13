@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
-            $table->integer('price');
-            $table->integer('category_id');
+            $table->string('thumbnail')->nullable();
+            $table->json('images')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('price')->default(0);
+            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }
