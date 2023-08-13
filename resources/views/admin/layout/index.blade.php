@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <base href="{{ asset('') }}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
                 <div class="sidebar-brand-text mx-3">BookStore</div>
             </a>
 
@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -50,25 +50,25 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Manager
+                Quản lý
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.category.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Category</span></a>
+                    <span>Danh mục</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.product.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Product</span></a>
+                    <span>Sản phẩm</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.order.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Order</span></a>
+                    <span>Đơn hàng</span></a>
             </li>
 
             <!-- Divider -->
@@ -130,8 +130,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="admin_assets/img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="admin_assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
