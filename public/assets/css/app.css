@@ -136,6 +136,7 @@ a {
 .box-content .content ._1content .thumbnail {
     display: block;
     margin: 10px auto;
+    width: 100%;
 }
 
 .box-content .content ._1content .category {

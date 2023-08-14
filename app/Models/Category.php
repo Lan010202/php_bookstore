@@ -23,4 +23,14 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'parent_id', 'id');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function getProducts($count = 4)
+    {
+        return $this->products()->take($count)->orderBy('id', 'desc')->get();
+    }
 }

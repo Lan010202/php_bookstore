@@ -14,7 +14,8 @@ class ProductController extends Controller
     private $product;
     private $category;
 
-    public function __construct(Product $product, Category $category) {
+    public function __construct(Product $product, Category $category)
+    {
         $this->product = $product;
         $this->category = $category;
     }
@@ -60,22 +61,32 @@ class ProductController extends Controller
         $params['thumbnail'] = $thumbnail_path;
 
         $images = $request->file('images');
-        $image_paths = [];
-        foreach ($images as $image) {
-            $image_path = $image->store('images', [
-                'disk' => 'public'
-            ]);
-            array_push($image_paths, $image_path);
+        if ($images) {
+            if (!is_array($images)) {
+                $image_paths = [];
+                $image_path = $images->store('images', [
+                    'disk' => 'public'
+                ]);
+                array_push($image_paths, $image_path);
+                $params['images'] = json_encode($image_paths);
+            } else {
+                $image_paths = [];
+                foreach ($images as $image) {
+                    $image_path = $image->store('images', [
+                        'disk' => 'public'
+                    ]);
+                    array_push($image_paths, $image_path);
+                }
+                $params['images'] = json_encode($image_paths);
+            }
         }
 
-        $params['images'] = json_encode($image_paths);
 
         $params['slug'] = Str::slug($params['title']);
         $product = $this->product->create($params);
         if ($product) {
             return redirect()->route('admin.product.index');
         }
-
     }
 
     /**
