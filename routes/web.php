@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Address\AddressController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Order\OrderController;
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('address', [ProfileController::class, 'update'])->name('address');
     Route::resource('address', AddressController::class)->names('user.address');
     Route::resource('order', OrderController::class)->names('user.order');
+    Route::resource('cart', CartController::class)->names('user.cart');
     Route::prefix('auth')->group(function() {
         Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
     });

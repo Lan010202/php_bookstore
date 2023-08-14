@@ -30,8 +30,8 @@
         <div class="cart">
             <i class="fas fa-shopping-cart"></i>
             <div class="cart-content">
-                <span>Giỏ hàng</span>
-                <strong>400,000 VND</strong>
+                <a href="{{ route('user.cart.index') }}"><span>Giỏ hàng</span></a>
+                <strong>{{ number_format($total_cart) }} VND</strong>
             </div>
         </div>
     </div>
