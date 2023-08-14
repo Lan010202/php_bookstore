@@ -23,7 +23,7 @@
                 <a href="{{ route('auth.login') }}"><span>Đăng nhập</span></a>
                 @endauth
                 <a href={{ route('home') }}>
-                    <strong>Tài khoản</strong>
+                    <a href="{{ route('profile') }}">Tài khoản</a>
                 </a>
             </div>
         </div>

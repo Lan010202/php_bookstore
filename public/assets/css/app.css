@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #19110b;
+}
+
 .top {
     background-color: #fff6f6;
     display: flex;
