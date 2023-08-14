@@ -13,7 +13,6 @@
                         Tài khoản
                     </a>
                     <a href="{{ route('user.order.index') }}" class="list-group-item list-group-item-action text-center">Đơn hàng</a>
-                    <a href="{{ route('user.address.index') }}" class="list-group-item list-group-item-action text-center">Địa chỉ</a>
                 </div>
             </div>
             <div class="col-9">
