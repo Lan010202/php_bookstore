@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <div class="container">
-    <div class="my-4 pt-4 box-content" id="best-seller">
+    {{-- <div class="my-4 pt-4 box-content" id="best-seller">
         <div class="row">
             <div class="col-12">
                 <div class="title">
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="my-4 pt-4 box-content" id="news">
         <div class="row">
@@ -80,8 +80,10 @@
                     <div class="_1content">
                         <img class="thumbnail" src="{{ asset("storage/$product->thumbnail") }}" alt="{{ $product->thumbnail }}">
                         <span class="category">{{ $product->category->title }}</span>
-                        <h6 class="title">{{ $product->title }}</h6>
-                        <strong class="price">{{ $product->price }} VND</strong>
+                        <a href="{{ route('product', [
+                            'slug' => $product->slug
+                        ]) }}" class="title">{{ $product->title }}</a>
+                        <strong class="price">{{ number_format($product->price) }} VND</strong>
                         <div class="action">
                             <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
                             <button class="btn btn-default buy-now">Mua ngay</button>
@@ -110,7 +112,7 @@
                         <img class="thumbnail" src="{{ asset("storage/$product->thumbnail") }}" alt="{{ $product->thumbnail }}">
                         <span class="category">{{ $category->title }}</span>
                         <h6 class="title">{{ $product->title }}</h6>
-                        <strong class="price">{{ $product->price }} VND</strong>
+                        <strong class="price">{{ number_format($product->price) }} VND</strong>
                         <div class="action">
                             <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
                             <button class="btn btn-default buy-now">Mua ngay</button>
