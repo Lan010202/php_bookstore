@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Order;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,16 +13,21 @@ class OrderController extends Controller
 {
     private $cart;
     private $order;
-    public function __construct(Cart $cart, Order $order) {
+    private $order_details;
+    public function __construct(Cart $cart, Order $order, OrderDetail $order_details) {
         $this->cart = $cart;
         $this->order = $order;
+        $this->order_details = $order_details;
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('order.index');
+        $orders = $this->order->where('user_id', Auth::id())->get();
+        return view('order.index', [
+            'orders'=> $orders,
+        ]);
     }
 
     /**
@@ -52,6 +58,14 @@ class OrderController extends Controller
         $params['user_id'] = $user_id;
         $order = $this->order->create($params);
         if ($order) {
+            $carts = $this->cart->where('user_id', $user_id)->get();
+            foreach ($carts as $cart) {
+                $this->order_details->create([
+                    'order_id' => $order->id,
+                    'product_id' => $cart->product->id,
+                    'quantity' => $cart->quantity,
+                ]);
+            }
             $this->cart->where('user_id', $user_id)->delete();
         }
         return redirect()->route('user.order.index');

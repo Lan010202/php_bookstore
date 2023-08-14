@@ -24,4 +24,19 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function details()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
+
+    public function total_price()
+    {
+        $details = $this->details->all();
+        $total_price = 0;
+        foreach($details as $detail) {
+            $total_price += $detail->product->price * $detail->quantity;
+        }
+        return $total_price;
+    }
 }

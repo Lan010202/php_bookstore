@@ -13,38 +13,45 @@
                         Tài khoản
                     </a>
                     <a href="{{ route('user.order.index') }}" class="list-group-item list-group-item-action text-center active">Đơn hàng</a>
-                    <a href="{{ route('user.address.index') }}" class="list-group-item list-group-item-action text-center">Địa chỉ</a>
                 </div>
             </div>
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                        Địa chỉ
+                        Đơn hàng
                     </div>
-                    {{-- <div class="card-body">
-                        <form action="{{ route('profile') }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Địa chỉ Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Nhập địa chỉ email" value="{{ $user->email ?? ""}}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="first_name" class="form-label">Tên</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nhập tên" value="{{ $user->first_name ?? ""}}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="last_name" class="form-label">Họ và tên đệm</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Nhập họ và tên đệm" value="{{ $user->last_name ?? ""}}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Số điện thoại</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" value="{{ $user->phone ?? ""}}">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">Cập nhật</button>
-                        </form>
-                    </div> --}}
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Ngày đặt hàng</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Tổng giá trị</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Ngày đặt hàng</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Tổng giá trị</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach ($orders as $order)
+                                    <tr>
+                                        <td>{{ $order->created_at }}</td>
+                                        <td>{{ $order->address }}</td>
+                                        <td>{{ $order->total_price() }} VND</td>
+                                        <td>Đang xử lý</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
