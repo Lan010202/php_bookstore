@@ -40,6 +40,7 @@
 
 .top .right strong {
     font-weight: 500;
+    color: #19110b;
 }
 
 .top .right .sign-in {
@@ -52,6 +53,10 @@
 .top .right .sign-in .sign-in-content {
     display: flex;
     flex-direction: column;
+}
+.top .right .sign-in .sign-in-content a {
+    text-decoration: none;
+    line-height: initial;
 }
 
 .top .right .cart {

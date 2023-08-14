@@ -17,8 +17,14 @@
         <div class="sign-in">
             <i class="user-icon far fa-user"></i>
             <div class="sign-in-content">
-                <span>Đăng nhập</span>
-                <strong>Tài khoản</strong>
+                @auth
+                <a href="{{ route('auth.logout') }}"><span>Đăng xuất</span></a>
+                @else
+                <a href="{{ route('auth.login') }}"><span>Đăng nhập</span></a>
+                @endauth
+                <a href={{ route('home') }}>
+                    <strong>Tài khoản</strong>
+                </a>
             </div>
         </div>
         <div class="cart">
