@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('title')
-    Tài khoản của tôi
+    Địa chỉ
 @endsection
 
 @section('content')
@@ -9,19 +9,19 @@
         <div class="row my-4">
             <div class="col-3">
                 <div class="list-group">
-                    <a href="{{ route('profile') }}" class="list-group-item list-group-item-action text-center active">
+                    <a href="{{ route('profile') }}" class="list-group-item list-group-item-action text-center">
                         Tài khoản
                     </a>
                     <a href="{{ route('user.order.index') }}" class="list-group-item list-group-item-action text-center">Đơn hàng</a>
-                    <a href="{{ route('user.address.index') }}" class="list-group-item list-group-item-action text-center">Địa chỉ</a>
+                    <a href="{{ route('user.address.index') }}" class="list-group-item list-group-item-action text-center active">Địa chỉ</a>
                 </div>
             </div>
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                        Tài khoản
+                        Địa chỉ
                     </div>
-                    <div class="card-body">
+                    {{-- <div class="card-body">
                         <form action="{{ route('profile') }}" method="POST">
                             @csrf
                             @method('PUT')
@@ -44,7 +44,7 @@
 
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
