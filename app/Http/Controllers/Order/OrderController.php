@@ -3,10 +3,19 @@
 namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    private $cart;
+    private $order;
+    public function __construct(Cart $cart, Order $order) {
+        $this->cart = $cart;
+        $this->order = $order;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -20,7 +29,12 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $carts = $this->cart->where('user_id', $user->id)->get();
+        return view('order.create', [
+            'user' => $user,
+            'carts' => $carts
+        ]);
     }
 
     /**
@@ -28,7 +42,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::id();
+        $params = $request->all(
+            'first_name',
+            'last_name',
+            'phone',
+            'address'
+        );
+        $params['user_id'] = $user_id;
+        $order = $this->order->create($params);
+        if ($order) {
+            $this->cart->where('user_id', $user_id)->delete();
+        }
+        return redirect()->route('user.order.index');
     }
 
     /**

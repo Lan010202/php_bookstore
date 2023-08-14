@@ -41,9 +41,8 @@
                             </div>
                         @endforeach
 
-
                         <div class="d-grid">
-                            <button class="btn btn-primary">Đặt hàng</button>
+                            <a href="{{ route('user.order.create') }}" class="btn btn-primary">Đặt hàng</a>
                         </div>
                     </div>
                 </div>

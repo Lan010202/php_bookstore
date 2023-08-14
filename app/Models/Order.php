@@ -13,17 +13,15 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
-        'address_id',
+        'first_name',
+        'last_name',
+        'phone',
+        'address',
         'status'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-
-    public function address()
-    {
-        return $this->belongsTo(Address::class, 'address_id', 'id');
     }
 }
