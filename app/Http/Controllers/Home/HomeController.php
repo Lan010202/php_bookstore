@@ -20,8 +20,10 @@ class HomeController extends Controller
     public function home()
     {
         $categories = $this->category->all();
+        $news = $this->product->take(4)->orderBy('id', 'desc')->get();
         return view('home.index', [
             'categories' => $categories,
+            'news' => $news
         ]);
     }
 }

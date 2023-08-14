@@ -76,50 +76,18 @@
                     </a>
                 </div>
                 <div class="content">
+                    @foreach ($news as $product)
                     <div class="_1content">
-                        <img class="thumbnail" src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/150x226/img1.jpg" alt="">
-                        <span class="category">Phát triển</span>
-                        <h6 class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</h6>
-                        <span class="author">Jay Shetty</span>
-                        <strong class="price">50,000 VND</strong>
+                        <img class="thumbnail" src="{{ asset("storage/$product->thumbnail") }}" alt="{{ $product->thumbnail }}">
+                        <span class="category">{{ $product->category->title }}</span>
+                        <h6 class="title">{{ $product->title }}</h6>
+                        <strong class="price">{{ $product->price }} VND</strong>
                         <div class="action">
                             <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
                             <button class="btn btn-default buy-now">Mua ngay</button>
                         </div>
                     </div>
-                    <div class="_1content">
-                        <img class="thumbnail" src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/150x226/img1.jpg" alt="">
-                        <span class="category">Phát triển</span>
-                        <h6 class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</h6>
-                        <span class="author">Jay Shetty</span>
-                        <strong class="price">50,000 VND</strong>
-                        <div class="action">
-                            <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
-                            <button class="btn btn-default buy-now">Mua ngay</button>
-                        </div>
-                    </div>
-                    <div class="_1content">
-                        <img class="thumbnail" src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/150x226/img1.jpg" alt="">
-                        <span class="category">Phát triển</span>
-                        <h6 class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</h6>
-                        <span class="author">Jay Shetty</span>
-                        <strong class="price">50,000 VND</strong>
-                        <div class="action">
-                            <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
-                            <button class="btn btn-default buy-now">Mua ngay</button>
-                        </div>
-                    </div>
-                    <div class="_1content">
-                        <img class="thumbnail" src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/150x226/img1.jpg" alt="">
-                        <span class="category">Phát triển</span>
-                        <h6 class="title">Think Like a Monk: Train Your Mind for Peace and Purpose Everyday</h6>
-                        <span class="author">Jay Shetty</span>
-                        <strong class="price">50,000 VND</strong>
-                        <div class="action">
-                            <button class="btn btn-default add-to-cart"><i class="fas fa-cart-plus"></i></button>
-                            <button class="btn btn-default buy-now">Mua ngay</button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
