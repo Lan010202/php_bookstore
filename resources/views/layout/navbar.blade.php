@@ -9,9 +9,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Trang chủ</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#best-seller">Sách bán chạy</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#news">Sách mới cập nhật</a>
                 </li>
