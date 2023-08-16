@@ -35,7 +35,9 @@ class Order extends Model
         $details = $this->details->all();
         $total_price = 0;
         foreach($details as $detail) {
-            $total_price += $detail->product->price * $detail->quantity;
+            if ($detail->product) {
+                $total_price += $detail->product->price * $detail->quantity;
+            }
         }
         return $total_price;
     }
