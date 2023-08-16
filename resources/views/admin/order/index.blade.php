@@ -21,7 +21,6 @@
                             <th>Địa chỉ</th>
                             <th>Tổng giá trị</th>
                             <th>Trạng thái</th>
-                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tfoot>
