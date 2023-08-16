@@ -3,16 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    private $order;
+    public function __construct(Order $order = null) {
+        $this->order = $order;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.order.index');
+        $orders = $this->order->all();
+        return view('admin.order.index', [
+            'orders' => $orders,
+        ]);
     }
 
     /**

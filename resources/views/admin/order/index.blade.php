@@ -31,20 +31,18 @@
                             <th>Địa chỉ</th>
                             <th>Tổng giá trị</th>
                             <th>Trạng thái</th>
-                            <th>Hành động</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($orders as $order)
                         <tr>
-                            <td>01/01/2023</td>
-                            <td>User name</td>
-                            <td>Hà Nội</td>
-                            <td>80,000 VND</td>
+                            <td>{{ $order->created_at }}</td>
+                            <td>{{ $order->user->last_name ?? "" }} {{ $order->user->first_name ?? "" }}</td>
+                            <td>{{ $order->address ?? "" }}</td>
+                            <td>{{ number_format($order->total_price()) ?? 0 }}</td>
                             <td>Đang xử lý</td>
-                            <td>
-                                action
-                            </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
