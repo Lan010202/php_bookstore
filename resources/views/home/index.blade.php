@@ -54,7 +54,9 @@
                     <div class="_1content">
                         <img class="thumbnail" src="{{ asset("storage/$product->thumbnail") }}" alt="{{ $product->thumbnail }}">
                         <span class="category">{{ $category->title }}</span>
-                        <h6 class="title">{{ $product->title }}</h6>
+                        <a href="{{ route('product', [
+                            'slug' => $product->slug
+                        ]) }}" class="title">{{ $product->title }}</a>
                         <strong class="price">{{ number_format($product->price) }} VND</strong>
                         <div class="action">
                             <form action="{{ route('user.cart.store') }}" method="POST">
